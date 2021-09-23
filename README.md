@@ -36,7 +36,7 @@ Web application allows user to:
 
 ### Prerequisites
 
-To get this project up and running locally, you must already have npm and nodejs plus the necessary packages installed on your computer
+To get this project up and running locally, you must already have npm plus the necessary packages installed on your computer
 
 **simple steps set up on your local machine**
 
