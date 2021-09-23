@@ -25,7 +25,7 @@ var colorIndex = 0;
 
 function changeBackgroundColor() {
     var doc = document.getElementsByTagName("BODY")[0];
-    var color = ["#49599a", "#883997", "#0069c0", "#75a478", "#00867d", "#087f23"];
+    var color = ["#2a9af5", "#002dc0", "#0069c0", "#500cf0", "#6412cf"];
     doc.style.backgroundColor = color[colorIndex];
     colorIndex = (colorIndex + 1) % color.length;
 
