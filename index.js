@@ -55,4 +55,34 @@ function validateForm() {
             mdate.style.border = "2px solid red";
             return false;
         }
+    } else {
+            document.getElementById("result").innerHTML += "Day must be a number";
+            document.getElementById("result").style.color = 'red';
+
+            mdate.style.border = "2px solid red";
+            return false;
+        }
+    }
+    if (mmonth.value == "" || mmonth.value == null) {
+        document.getElementById("result").innerHTML += "Month is Required";
+        document.getElementById("result").style.color = 'red';
+        mmonth.style.border = "2px solid red";
+        return false;
+    } else {
+        mmonth.style.border = "";
+        if (!isNaN(mmonth.value)) {
+            if (mmonth.value <= 0 || mmonth.value > 12) {
+                document.getElementById("result").innerHTML += "Invalid Month";
+                document.getElementById("result").style.color = 'red';
+
+                mmonth.style.border = "2px solid red";
+                return false;
+            }
+        } else {
+            document.getElementById("result").innerHTML += "Month must be a number";
+            document.getElementById("result").style.color = 'red';
+
+            mmonth.style.border = "2px solid red";
+            return false;
+        }
     }
