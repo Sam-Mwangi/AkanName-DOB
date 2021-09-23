@@ -23,7 +23,17 @@ var akanGender = [
 var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
 var colorIndex = 0;
 
-const validateForm = () => {
+function changeBackgroundColor() {
+    var doc = document.getElementsByTagName("BODY")[0];
+    var color = ["#49599a", "#883997", "#0069c0", "#75a478", "#00867d", "#087f23"];
+    doc.style.backgroundColor = color[colorIndex];
+    colorIndex = (colorIndex + 1) % color.length;
+
+}
+setInterval(changeBackgroundColor, 2000);
+
+
+function validateForm() {
     var gender = document.getElementsByName("gender");
     var date = document.getElementById("date");
     var month = document.getElementById("month");
@@ -33,7 +43,7 @@ const validateForm = () => {
     document.getElementById("result").innerHTML = "";
     if (date.value == "" || date.value == null) {
 
-        document.getElementById("result").innerHTML += "Date can't be blank!";
+        document.getElementById("result").innerHTML += "Day is Required";
         document.getElementById("result").style.color = 'red';
 
         date.style.border = "2px solid red";
@@ -42,7 +52,7 @@ const validateForm = () => {
         date.style.border = "";
         if (!isNaN(date.value)) {
             if (date.value <= 0 || date.value > 31) {
-                document.getElementById("result").innerHTML += "Invalid Date";
+                document.getElementById("result").innerHTML += "Invalid Day";
                 document.getElementById("result").style.color = 'red';
 
                 date.style.border = "2px solid red";
@@ -55,8 +65,9 @@ const validateForm = () => {
             date.style.border = "2px solid red";
             return false;
         }
+    }
     if (month.value == "" || month.value == null) {
-        document.getElementById("result").innerHTML += "Month is can't be blank";
+        document.getElementById("result").innerHTML += "Month is Required";
         document.getElementById("result").style.color = 'red';
         month.style.border = "2px solid red";
         return false;
@@ -101,6 +112,7 @@ const validateForm = () => {
             return false;
         }
     }
+
     while (!formValid && i < gender.length) {
         if (gender[i].checked)
             formValid = true;
@@ -113,9 +125,10 @@ const validateForm = () => {
 
 
     return formValid;
+
 }
 
-const getUserDetails = () => {
+function getUserDetails() {
     var date = parseInt(document.getElementById("date").value);
     var month = parseInt(document.getElementById("month").value);
     var year = parseInt(document.getElementById("year").value);
@@ -131,13 +144,14 @@ const getUserDetails = () => {
         month: month,
         year: year,
         myGenderValue: GenderValue,
-
     }
 
+
     return userDetails;
+
 }
 
-const aggregateFunctions = () => {
+function aggregateFunctions() {
     var formValid = validateForm();
 
     if (!formValid) {
@@ -152,8 +166,9 @@ const aggregateFunctions = () => {
 
     }
 }
-    
-const verifyUserBirthday = () => {
+
+
+function verifyUserBirthday() {
     var userDetailsObject = getUserDetails();
     date = userDetailsObject.date;
     month = userDetailsObject.month;
@@ -166,9 +181,10 @@ const verifyUserBirthday = () => {
         Math.floor(year / 400) + Math.floor((31 * m) / 12)) % 7;
 
     return dayOfWeek;
+
 }
-    
-const findUserAkanName = () => {
+
+function findUserAkanName() {
     var userDetailsObject = getUserDetails();
     mGender = userDetailsObject.myGenderValue;
     userWeekDayIndex = verifyUserBirthday();
@@ -187,7 +203,7 @@ const findUserAkanName = () => {
                 }
             }
         }
-    } else if (Gender === "female") {
+    } else if (mGender === "female") {
         var akanGenderObject = akanGender[1];
 
         for (var key in akanGenderObject) {
@@ -197,6 +213,7 @@ const findUserAkanName = () => {
                 }
             }
         }
+
     } else {
         alert("Error occured!");
     }
@@ -211,8 +228,9 @@ const findUserAkanName = () => {
     return importantDetails;
 
 }
-const printUserAkanName = () => {
-    // clearInterval(changeBackgroundColor);
+
+function printUserAkanName() {
+    clearInterval(changeBackgroundColor);
     var akanDetails = findUserAkanName();
     akanName = akanDetails.akanName;
     dayOfTheWeek = akanDetails.dayOfTheWeek;
@@ -234,7 +252,7 @@ const printUserAkanName = () => {
 
 
 }
-    
-const clearInput = () => {
+
+function clearInput() {
     window.location.reload();
 }
