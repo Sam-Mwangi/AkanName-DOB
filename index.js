@@ -23,7 +23,7 @@ var akanGender = [
 var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
 var colorIndex = 0;
 
-function validateForm() {
+const validateForm = () => {
     var gender = document.getElementsByName("gender");
     var date = document.getElementById("date");
     var month = document.getElementById("month");
@@ -55,14 +55,6 @@ function validateForm() {
             date.style.border = "2px solid red";
             return false;
         }
-    } else {
-            document.getElementById("result").innerHTML += "Date must be a number";
-            document.getElementById("result").style.color = 'red';
-
-            date.style.border = "2px solid red";
-            return false;
-        }
-    }
     if (month.value == "" || month.value == null) {
         document.getElementById("result").innerHTML += "Month is can't be blank";
         document.getElementById("result").style.color = 'red';
@@ -123,7 +115,7 @@ function validateForm() {
     return formValid;
 }
 
-function getUserDetails() {
+const getUserDetails = () => {
     var date = parseInt(document.getElementById("date").value);
     var month = parseInt(document.getElementById("month").value);
     var year = parseInt(document.getElementById("year").value);
@@ -145,107 +137,104 @@ function getUserDetails() {
     return userDetails;
 }
 
-    function aggregateFunctions() {
-        var formValid = validateForm();
-    
-        if (!formValid) {
-            validateForm();
-            return false;
-        } {
-            getUserDetails();
-            verifyUserBirthday();
-            findUserAkanName();
-            printUserAkanName();
-            return false;
-    
-        }
+const aggregateFunctions = () => {
+    var formValid = validateForm();
+
+    if (!formValid) {
+        validateForm();
+        return false;
+    } {
+        getUserDetails();
+        verifyUserBirthday();
+        findUserAkanName();
+        printUserAkanName();
+        return false;
+
     }
+}
     
-        function verifyUserBirthday() {
-        var userDetailsObject = getUserDetails();
-        date = userDetailsObject.date;
-        month = userDetailsObject.month;
-        year = userDetailsObject.year;
+const verifyUserBirthday = () => {
+    var userDetailsObject = getUserDetails();
+    date = userDetailsObject.date;
+    month = userDetailsObject.month;
+    year = userDetailsObject.year;
+
+    var a = Math.floor((14 - month) / 12);
+    var y = year - a;
+    var m = month + 12 * a - 2;
+    dayOfWeek = (date + y + Math.floor(y / 4) - Math.floor(y / 100) +
+        Math.floor(year / 400) + Math.floor((31 * m) / 12)) % 7;
+
+    return dayOfWeek;
+}
     
-        var a = Math.floor((14 - month) / 12);
-        var y = year - a;
-        var m = month + 12 * a - 2;
-        dayOfWeek = (date + y + Math.floor(y / 4) - Math.floor(y / 100) +
-            Math.floor(year / 400) + Math.floor((31 * m) / 12)) % 7;
-    
-        return dayOfWeek;
-    
-    }
-    
-    function findUserAkanName() {
-        var userDetailsObject = getUserDetails();
-        mGender = userDetailsObject.myGenderValue;
-        userWeekDayIndex = verifyUserBirthday();
-    
-    
-        var dayOfTheWeek = weekDayArray[userWeekDayIndex];
-        // alert(dayOfTheWeek);
-    
-        if (mGender === "male") {
-    
-            var akanGenderObject = akanGender[0];
-    
-            for (var key in akanGenderObject) {
-                if (akanGenderObject.hasOwnProperty(key)) {
-                    if (key === dayOfTheWeek) {
-                        akanName = akanGenderObject[key];
-                    }
+const findUserAkanName = () => {
+    var userDetailsObject = getUserDetails();
+    mGender = userDetailsObject.myGenderValue;
+    userWeekDayIndex = verifyUserBirthday();
+
+
+    var dayOfTheWeek = weekDayArray[userWeekDayIndex];
+
+    if (mGender === "male") {
+
+        var akanGenderObject = akanGender[0];
+
+        for (var key in akanGenderObject) {
+            if (akanGenderObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    akanName = akanGenderObject[key];
                 }
             }
-            // alert(akanName);
-        } else if (Gender === "female") {
-            var akanGenderObject = akanGender[1];
-    
-            for (var key in akanGenderObject) {
-                if (akanGenderObject.hasOwnProperty(key)) {
-                    if (key === dayOfTheWeek) {
-                        akanName = akanGenderObject[key];
-                    }
+        }
+    } else if (Gender === "female") {
+        var akanGenderObject = akanGender[1];
+
+        for (var key in akanGenderObject) {
+            if (akanGenderObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    akanName = akanGenderObject[key];
                 }
             }
-        } else {
-            alert("Error occured!");
         }
-    
-        var importantDetails = {
-            akanName: akanName,
-            dayOfTheWeek: dayOfTheWeek,
-            mGender: mGender
-    
-    
-        }
-        return importantDetails;
-    
+    } else {
+        alert("Error occured!");
     }
-    function printUserAkanName() {
-        // clearInterval(changeBackgroundColor);
-        var akanDetails = findUserAkanName();
-        akanName = akanDetails.akanName;
-        dayOfTheWeek = akanDetails.dayOfTheWeek;
-        mGender = akanDetails.mGender;
-    
-        var doc = document.getElementsByTagName("BODY")[0];
-        doc.style.backgroundImage = "url('https://codemyui.com/wp-content/uploads/2016/07/flying-birds-animation-using-three_js-1.gif')";
-        doc.style.backgroundColor = "#f08a2d";
-        doc.style.backgroundRepeat = "no-repeat";
-        doc.style.backgroundSize = "cover";
-    
-    
-        document.getElementById("mheading").innerHTML = "Congratulations!";
-        document.getElementById("myAkan").innerHTML = "Hurray! We found it.Your Akan name is  " + akanName;
-        document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
-        document.getElementById("myAkan").style.textDecoration = "underline overline";
-        document.getElementById("myAkan").style.color = '#6e2c00';
-        document.getElementById("myAkan").style.fontSize = '45px';
-    
-    
+
+    var importantDetails = {
+        akanName: akanName,
+        dayOfTheWeek: dayOfTheWeek,
+        mGender: mGender
+
+
     }
+    return importantDetails;
+
+}
+const printUserAkanName = () => {
+    // clearInterval(changeBackgroundColor);
+    var akanDetails = findUserAkanName();
+    akanName = akanDetails.akanName;
+    dayOfTheWeek = akanDetails.dayOfTheWeek;
+    mGender = akanDetails.mGender;
+
+    var doc = document.getElementsByTagName("BODY")[0];
+    doc.style.backgroundImage = "url('https://codemyui.com/wp-content/uploads/2016/07/flying-birds-animation-using-three_js-1.gif')";
+    doc.style.backgroundColor = "#f08a2d";
+    doc.style.backgroundRepeat = "no-repeat";
+    doc.style.backgroundSize = "cover";
+
+
+    document.getElementById("mheading").innerHTML = "Congratulations!";
+    document.getElementById("myAkan").innerHTML = "Hurray! We found it.Your Akan name is  " + akanName;
+    document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
+    document.getElementById("myAkan").style.textDecoration = "underline overline";
+    document.getElementById("myAkan").style.color = '#6e2c00';
+    document.getElementById("myAkan").style.fontSize = '45px';
+
+
+}
     
-    function clearInput() {
-        window.location.reload();
-    }
+const clearInput = () => {
+    window.location.reload();
+}
