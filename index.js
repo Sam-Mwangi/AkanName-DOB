@@ -247,7 +247,7 @@ function printUserAkanName() {
     document.getElementById("myAkan").innerHTML = "Hurray! We found it.Your Akan name is  " + akanName;
     document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
     document.getElementById("myAkan").style.textDecoration = "underline overline";
-    document.getElementById("myAkan").style.color = '#6412cf';
+    document.getElementById("myAkan").style.color = '#fff';
     document.getElementById("myAkan").style.fontSize = '45px';
 
 

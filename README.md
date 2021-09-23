@@ -34,9 +34,9 @@ To get this project up and running locally, you must already have npm and nodejs
 **simple steps set up on your local machine**
 
 ```
-- $ git clone `$ git clone https://github.com/Sam-Mwangi/AkanName-DOB`
+- $ git clone https://github.com/Sam-Mwangi/AkanName-DOB
 - $ git checkout main
-- Run `cd AkanName-DOB`
+- $ cd AkanName-DOB
 ```
 
 - [Live Version](https://sam-mwangi.github.io/AkanName-DOB/)
@@ -59,13 +59,13 @@ To get a local copy up and running follow these simple example steps.
 
 ```
 - Fork the repository
-- git clone https://github.com/your_username/AkanName-DOB
-- git checkout develop
-- git checkout -b branch name
-- git remote add upstream https://github.com/Sam-Mwangi/AkanName-DOB
-- git pull upstream develop
-- git commit -m "commit message"
-- git push -u origin HEAD
+- $ git clone https://github.com/your_username/AkanName-DOB
+- $ git checkout develop
+- $ git checkout -b branch name
+- $ git remote add upstream https://github.com/Sam-Mwangi/AkanName-DOB
+- $ git pull upstream develop
+- $ git commit -m "commit message"
+- $ git push -u origin HEAD
 ```
 
 ## Show your support

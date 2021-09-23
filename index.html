@@ -19,27 +19,32 @@
             <a href="https://en.wikipedia.org/wiki/Akan_names" target="_blank" class="btn text-white bg-dark" rel="noopener noreferrer">Learn More</a>
             <br>
         </div>
-        <div class="container">
-            <form name="myForm" onsubmit="return aggregateFunctions()" class="col-sm-offset-4 col-sm-4 form-inline form-group">
-                <label class="label" id="birthday"><strong>Enter Your Birthday</strong></label><br>
-                <div id="result"></div><br>
-                <label>Day</label>
-                <input type="text" id="date" name="date" value="" placeholder="01">
-                <label>Month</label>
-                <input type="text" id="month" name="month" value="" placeholder="12">
-                <label>Year</label>
-                <input type="text" id="year" name="year" value="" placeholder="2001">
-                <div id="date"></div>
+        <div class="container row">
+            <div class="col-8">
+                <form name="myForm" onsubmit="return aggregateFunctions()" class="form-inline form-group">
+                    <label class="label" id="birthday"><strong>Enter Your Birthday</strong></label><br>
+                    <div id="result"></div><br>
+                    <label>Day</label>
+                    <input type="text" id="date" name="date" value="" placeholder="23">
+                    <label>Month</label>
+                    <input type="text" id="month" name="month" value="" placeholder="9">
+                    <label>Year</label>
+                    <input type="text" id="year" name="year" value="" placeholder="2021">
+                    <div id="date"></div>
 
-                <div id="the-gender" class="label"><strong>Select Your Gender</strong></div>
+                    <div id="the-gender" class="label"><strong>Select Your Gender</strong></div>
 
-                <input type="radio" name="gender" value="male">Male
-                <input type="radio" name="gender" value="female">Female<br>
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">Female<br>
 
 
-                <input type="submit" value="SUBMIT">
-                <input type="submit" value="FIND ANOTHER" onClick="clearInput()">
-            </form>
+                    <input type="submit" value="SUBMIT">
+                    <input type="submit" value="FIND ANOTHER" onClick="clearInput()">
+                </form>
+            </div>
+            <div class="col-4">
+                <img src="./download.png" class="img-fluid" alt="">
+            </div>
         </div>
         <br>
         <div class="imges container">
