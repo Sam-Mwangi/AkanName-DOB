@@ -86,3 +86,26 @@ function validateForm() {
             return false;
         }
     }
+    if (myear.value == "" || myear.value == null) {
+        document.getElementById("result").innerHTML += "Year is Required";
+        document.getElementById("result").style.color = 'red';
+        myear.style.border = "2px solid red";
+        return false;
+    } else {
+        myear.style.border = "";
+        if (!isNaN(myear.value)) {
+            if (myear.value.length != 4) {
+                document.getElementById("result").innerHTML += "Invalid Year";
+                document.getElementById("result").style.color = 'red';
+
+                myear.style.border = "2px solid red";
+                return false;
+            }
+        } else {
+            document.getElementById("result").innerHTML += "Year must be a number";
+            document.getElementById("result").style.color = 'red';
+
+            myear.style.border = "2px solid red";
+            return false;
+        }
+    }
