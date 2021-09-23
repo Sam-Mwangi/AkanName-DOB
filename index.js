@@ -19,3 +19,16 @@ var akanGender = [
 
     }
 ]
+
+var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+var colorIndex = 0;
+
+function changeBackgroundColor() {
+    var doc = document.getElementsByTagName("BODY")[0];
+    var color = ["#49599a", "#883997", "#0069c0", "#75a478", "#00867d", "#087f23"];
+    doc.style.backgroundColor = color[colorIndex];
+    colorIndex = (colorIndex + 1) % color.length;
+
+}
+setInterval(changeBackgroundColor, 2000);
+
