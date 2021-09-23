@@ -25,57 +25,57 @@ var colorIndex = 0;
 
 function validateForm() {
     var gender = document.getElementsByName("gender");
-    var mdate = document.getElementById("mdate");
-    var mmonth = document.getElementById("mmonth");
-    var myear = document.getElementById("myear");
+    var date = document.getElementById("date");
+    var month = document.getElementById("month");
+    var year = document.getElementById("year");
     var formValid = false;
     var i = 0;
     document.getElementById("result").innerHTML = "";
-    if (mdate.value == "" || mdate.value == null) {
+    if (date.value == "" || date.value == null) {
 
-        document.getElementById("result").innerHTML += "Day is Required";
+        document.getElementById("result").innerHTML += "Date can't be blank!";
         document.getElementById("result").style.color = 'red';
 
-        mdate.style.border = "2px solid red";
+        date.style.border = "2px solid red";
         return false;
     } else {
-        mdate.style.border = "";
-        if (!isNaN(mdate.value)) {
-            if (mdate.value <= 0 || mdate.value > 31) {
-                document.getElementById("result").innerHTML += "Invalid Day";
+        date.style.border = "";
+        if (!isNaN(date.value)) {
+            if (date.value <= 0 || date.value > 31) {
+                document.getElementById("result").innerHTML += "Invalid Date";
                 document.getElementById("result").style.color = 'red';
 
-                mdate.style.border = "2px solid red";
+                date.style.border = "2px solid red";
                 return false;
             }
         } else {
             document.getElementById("result").innerHTML += "Day must be a number";
             document.getElementById("result").style.color = 'red';
 
-            mdate.style.border = "2px solid red";
+            date.style.border = "2px solid red";
             return false;
         }
     } else {
-            document.getElementById("result").innerHTML += "Day must be a number";
+            document.getElementById("result").innerHTML += "Date must be a number";
             document.getElementById("result").style.color = 'red';
 
             mdate.style.border = "2px solid red";
             return false;
         }
     }
-    if (mmonth.value == "" || mmonth.value == null) {
-        document.getElementById("result").innerHTML += "Month is Required";
+    if (month.value == "" || month.value == null) {
+        document.getElementById("result").innerHTML += "Month is can't be blank";
         document.getElementById("result").style.color = 'red';
-        mmonth.style.border = "2px solid red";
+        month.style.border = "2px solid red";
         return false;
     } else {
-        mmonth.style.border = "";
-        if (!isNaN(mmonth.value)) {
-            if (mmonth.value <= 0 || mmonth.value > 12) {
+        month.style.border = "";
+        if (!isNaN(month.value)) {
+            if (month.value <= 0 || month.value > 12) {
                 document.getElementById("result").innerHTML += "Invalid Month";
                 document.getElementById("result").style.color = 'red';
 
-                mmonth.style.border = "2px solid red";
+                month.style.border = "2px solid red";
                 return false;
             }
         } else {
@@ -86,26 +86,26 @@ function validateForm() {
             return false;
         }
     }
-    if (myear.value == "" || myear.value == null) {
+    if (year.value == "" || year.value == null) {
         document.getElementById("result").innerHTML += "Year is Required";
         document.getElementById("result").style.color = 'red';
-        myear.style.border = "2px solid red";
+        year.style.border = "2px solid red";
         return false;
     } else {
-        myear.style.border = "";
-        if (!isNaN(myear.value)) {
-            if (myear.value.length != 4) {
+        year.style.border = "";
+        if (!isNaN(year.value)) {
+            if (year.value.length != 4) {
                 document.getElementById("result").innerHTML += "Invalid Year";
                 document.getElementById("result").style.color = 'red';
 
-                myear.style.border = "2px solid red";
+                year.style.border = "2px solid red";
                 return false;
             }
         } else {
             document.getElementById("result").innerHTML += "Year must be a number";
             document.getElementById("result").style.color = 'red';
 
-            myear.style.border = "2px solid red";
+            year.style.border = "2px solid red";
             return false;
         }
     }
@@ -125,9 +125,9 @@ function validateForm() {
     }
 
     function getUserDetails() {
-        var mdate = parseInt(document.getElementById("mdate").value);
-        var mmonth = parseInt(document.getElementById("mmonth").value);
-        var myear = parseInt(document.getElementById("myear").value);
+        var date = parseInt(document.getElementById("date").value);
+        var month = parseInt(document.getElementById("month").value);
+        var year = parseInt(document.getElementById("year").value);
         var gender = document.getElementsByName("gender");
 
         for (var i = 0; i < gender.length; i++) {
@@ -136,9 +136,9 @@ function validateForm() {
         }
 
         var userDetails = {
-            mdate: mdate,
-            mmonth: mmonth,
-            myear: myear,
+            date: date,
+            month: month,
+            year: year,
             myGenderValue: GenderValue,
 
         }
@@ -162,25 +162,22 @@ function validateForm() {
         }
     }
     
-    
-    //verify the day of the users birthday
-    function verifyUserBirthday() {
+        function verifyUserBirthday() {
         var userDetailsObject = getUserDetails();
-        mdate = userDetailsObject.mdate;
-        mmonth = userDetailsObject.mmonth;
-        myear = userDetailsObject.myear;
+        date = userDetailsObject.date;
+        month = userDetailsObject.month;
+        year = userDetailsObject.year;
     
-        var a = Math.floor((14 - mmonth) / 12);
-        var y = myear - a;
-        var m = mmonth + 12 * a - 2;
-        dayOfWeek = (mdate + y + Math.floor(y / 4) - Math.floor(y / 100) +
-            Math.floor(myear / 400) + Math.floor((31 * m) / 12)) % 7;
+        var a = Math.floor((14 - month) / 12);
+        var y = year - a;
+        var m = month + 12 * a - 2;
+        dayOfWeek = (date + y + Math.floor(y / 4) - Math.floor(y / 100) +
+            Math.floor(year / 400) + Math.floor((31 * m) / 12)) % 7;
     
         return dayOfWeek;
     
     }
     
-    //finds the akan name that matches the day and gender
     function findUserAkanName() {
         var userDetailsObject = getUserDetails();
         mGender = userDetailsObject.myGenderValue;
@@ -192,32 +189,26 @@ function validateForm() {
     
         if (mGender === "male") {
     
-            var akanArrayObject = akanArray[0];
+            var akanGenderObject = akanGender[0];
     
-            for (var key in akanArrayObject) {
-                if (akanArrayObject.hasOwnProperty(key)) {
+            for (var key in akanGenderObject) {
+                if (akanGenderObject.hasOwnProperty(key)) {
                     if (key === dayOfTheWeek) {
-                        // alert(key);
-                        // alert(akanArrayObject[key]);
-                        akanName = akanArrayObject[key];
+                        akanName = akanGenderObject[key];
                     }
                 }
             }
             // alert(akanName);
-        } else if (mGender === "female") {
-            var akanArrayObject = akanArray[1];
+        } else if (Gender === "female") {
+            var akanGenderObject = akanGender[1];
     
-            for (var key in akanArrayObject) {
-                if (akanArrayObject.hasOwnProperty(key)) {
+            for (var key in akanGenderObject) {
+                if (akanGenderObject.hasOwnProperty(key)) {
                     if (key === dayOfTheWeek) {
-                        // alert(key);
-                        // alert(akanArrayObject[key]);
-                        akanName = akanArrayObject[key];
+                        akanName = akanGenderObject[key];
                     }
                 }
             }
-            // alert(akanName);
-    
         } else {
             alert("Error occured!");
         }
