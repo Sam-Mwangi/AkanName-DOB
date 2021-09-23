@@ -18,6 +18,7 @@ Web application allows user to:
 1. Read an overview & origin of the Akan Names.
 2. Enter their date, month and year of birth.
 3. Select their gender from the radio buttons options.
+4. View an overview of Akan Names Based on gender and days
 4. Click submit button to allow the application to load their Akan.
 5. View their Akan Name and congratulatory message.
 6. Click on find again button and enter other details to view akan names.
