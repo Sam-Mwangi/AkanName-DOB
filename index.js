@@ -59,7 +59,7 @@ function validateForm() {
             document.getElementById("result").innerHTML += "Date must be a number";
             document.getElementById("result").style.color = 'red';
 
-            mdate.style.border = "2px solid red";
+            date.style.border = "2px solid red";
             return false;
         }
     }
@@ -82,7 +82,7 @@ function validateForm() {
             document.getElementById("result").innerHTML += "Month must be a number";
             document.getElementById("result").style.color = 'red';
 
-            mmonth.style.border = "2px solid red";
+            month.style.border = "2px solid red";
             return false;
         }
     }

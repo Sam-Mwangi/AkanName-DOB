@@ -89,18 +89,3 @@
   .output {
     font-family: fantasy;
   }
-  /* #learn-more{
-    background-color: var(--green);
-    color: var(--white);
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 10%;
-    opacity: 0.9;
-  }
-  
-  #learn-more:hover{
-    background-color: var(--white);
-    color: var(--green);
-  } */
