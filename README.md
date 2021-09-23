@@ -7,6 +7,11 @@ A web application that takes users birthday and calculates the day of the week t
 - CSS
 - Javascript
 
+## Behaviour Driven Development (BDD)
+|Behaviour 	           |    Input 	                 |       Output          |
+|----------------------------------------------|:-----------------------------------:|-----------------------------:|       
+|Page loads and  a form displayed                         |   User enters form details  and selects from the select radios   and clicks submit                   |Their Akan name is displayed     |                       |
+
 
 ## Getting Started
 
@@ -22,7 +27,7 @@ To get this project up and running locally, you must already have npm and nodejs
 - Run `cd AkanName-DOB`
 ```
 
-- [Live Version]()
+- [Live Version](https://sam-mwangi.github.io/AkanName-DOB/)
 
 ## Author
 
@@ -57,4 +62,6 @@ Finally, if you've read this far, don't forget to give this repo a ⭐️. They'
 
 ## Acknowledgments
 
-- Code Instructor for project specifications.
+- [Moringa School](https://moringaschool.com/) for project specifications.
+
+* LICENSED UNDER  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](license/MIT)
