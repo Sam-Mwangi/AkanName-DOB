@@ -1,7 +1,7 @@
 # AKAN Name Day of Birth
 A web application that takes users birthday and calculates the day of the week they were born depending on gender outputs their Akan Name. Akan names are derived from Ghanian culture.
 
-![screenshot](./Screenshot2.png)
+
 
 
 ## Built With
@@ -23,7 +23,7 @@ Web application allows user to:
 5. View their Akan Name and congratulatory message.
 6. Click on find again button and enter other details to view akan names.
 
-![screenshot](./Screenshot1.png)
+
 
 
 ## Behaviour Driven Development (BDD)
