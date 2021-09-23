@@ -77,7 +77,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Show your support
 
-Finally, if you've read this far, don't forget to give this repo a ⭐️. They're free . . . I think.
+Finally, if you've read this far, don't forget to give this repo a ⭐️. Feel free create an issue and contribute...
 
 ## Acknowledgments
 
