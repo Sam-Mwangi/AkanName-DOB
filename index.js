@@ -145,3 +145,91 @@ function validateForm() {
 
         return userDetails;
     }
+
+    function aggregateFunctions() {
+        var formValid = validateForm();
+    
+        if (!formValid) {
+            validateForm();
+            return false;
+        } {
+            getUserDetails();
+            verifyUserBirthday();
+            findUserAkanName();
+            printUserAkanName();
+            return false;
+    
+        }
+    }
+    
+    
+    //verify the day of the users birthday
+    function verifyUserBirthday() {
+        var userDetailsObject = getUserDetails();
+        mdate = userDetailsObject.mdate;
+        mmonth = userDetailsObject.mmonth;
+        myear = userDetailsObject.myear;
+    
+        var a = Math.floor((14 - mmonth) / 12);
+        var y = myear - a;
+        var m = mmonth + 12 * a - 2;
+        dayOfWeek = (mdate + y + Math.floor(y / 4) - Math.floor(y / 100) +
+            Math.floor(myear / 400) + Math.floor((31 * m) / 12)) % 7;
+    
+        return dayOfWeek;
+    
+    }
+    
+    //finds the akan name that matches the day and gender
+    function findUserAkanName() {
+        var userDetailsObject = getUserDetails();
+        mGender = userDetailsObject.myGenderValue;
+        userWeekDayIndex = verifyUserBirthday();
+    
+    
+        var dayOfTheWeek = weekDayArray[userWeekDayIndex];
+        // alert(dayOfTheWeek);
+    
+        if (mGender === "male") {
+    
+            var akanArrayObject = akanArray[0];
+    
+            for (var key in akanArrayObject) {
+                if (akanArrayObject.hasOwnProperty(key)) {
+                    if (key === dayOfTheWeek) {
+                        // alert(key);
+                        // alert(akanArrayObject[key]);
+                        akanName = akanArrayObject[key];
+                    }
+                }
+            }
+            // alert(akanName);
+        } else if (mGender === "female") {
+            var akanArrayObject = akanArray[1];
+    
+            for (var key in akanArrayObject) {
+                if (akanArrayObject.hasOwnProperty(key)) {
+                    if (key === dayOfTheWeek) {
+                        // alert(key);
+                        // alert(akanArrayObject[key]);
+                        akanName = akanArrayObject[key];
+                    }
+                }
+            }
+            // alert(akanName);
+    
+        } else {
+            alert("Error occured!");
+        }
+    
+        var importantDetails = {
+            akanName: akanName,
+            dayOfTheWeek: dayOfTheWeek,
+            mGender: mGender
+    
+    
+        }
+        return importantDetails;
+    
+    }
+    
