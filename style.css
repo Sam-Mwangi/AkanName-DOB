@@ -2,6 +2,8 @@
     --white: #fff;
     --dark: #000;
     --grey: #ccc;
+    --green: #459e11;
+    --yellow: #b6d859;
   }
   
   *,
@@ -33,3 +35,72 @@
     font-family: "Crete Round", sans-serif;
   }
   
+  #welcome-message {
+    font-family: fantasy;
+    color: var(--dark);
+  }
+  
+  .main {
+    text-align: center;
+  }
+  
+  #welcome-story h1 {
+    color: var(--grey);
+  }
+  
+  input {
+    width: 60px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  input[type=submit] {
+    background-color: var(--white);
+    color: var(--dark);
+    width: 120px;
+  
+    margin-top: 100px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: var(--green);
+    color: var(--white);
+  }
+  
+  .label {
+    margin-top: 20px;
+  }
+  
+  #story {
+    max-width: 900px;
+    margin: auto;
+    color: wheat;
+    font-size: 22px;
+  }
+  
+  input[type=radio] {
+    border: 0px;
+    height: 2em;
+    color: var(--yellow);
+  }
+  
+  .output {
+    font-family: fantasy;
+  }
+  #learn-more{
+    background-color: var(--green);
+    color: var(--white);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+  }
+  
+  #learn-more:hover{
+    background-color: var(--white);
+    color: var(--green);
+  }
