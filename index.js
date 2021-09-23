@@ -238,7 +238,7 @@ function printUserAkanName() {
 
     var doc = document.getElementsByTagName("BODY")[0];
     doc.style.backgroundImage = "url('https://codemyui.com/wp-content/uploads/2016/07/flying-birds-animation-using-three_js-1.gif')";
-    doc.style.backgroundColor = "#f08a2d";
+    doc.style.backgroundColor = "#6412cf";
     doc.style.backgroundRepeat = "no-repeat";
     doc.style.backgroundSize = "cover";
 
@@ -247,7 +247,7 @@ function printUserAkanName() {
     document.getElementById("myAkan").innerHTML = "Hurray! We found it.Your Akan name is  " + akanName;
     document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
     document.getElementById("myAkan").style.textDecoration = "underline overline";
-    document.getElementById("myAkan").style.color = '#6e2c00';
+    document.getElementById("myAkan").style.color = '#6412cf';
     document.getElementById("myAkan").style.fontSize = '45px';
 
 
