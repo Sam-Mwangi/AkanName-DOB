@@ -121,30 +121,29 @@ function validateForm() {
 
 
     return formValid;
+}
+
+function getUserDetails() {
+    var date = parseInt(document.getElementById("date").value);
+    var month = parseInt(document.getElementById("month").value);
+    var year = parseInt(document.getElementById("year").value);
+    var gender = document.getElementsByName("gender");
+
+    for (var i = 0; i < gender.length; i++) {
+        if (gender[i].checked)
+            var GenderValue = gender[i].value;
+    }
+
+    var userDetails = {
+        date: date,
+        month: month,
+        year: year,
+        myGenderValue: GenderValue,
 
     }
 
-    function getUserDetails() {
-        var date = parseInt(document.getElementById("date").value);
-        var month = parseInt(document.getElementById("month").value);
-        var year = parseInt(document.getElementById("year").value);
-        var gender = document.getElementsByName("gender");
-
-        for (var i = 0; i < gender.length; i++) {
-            if (gender[i].checked)
-                var GenderValue = gender[i].value;
-        }
-
-        var userDetails = {
-            date: date,
-            month: month,
-            year: year,
-            myGenderValue: GenderValue,
-
-        }
-
-        return userDetails;
-    }
+    return userDetails;
+}
 
     function aggregateFunctions() {
         var formValid = validateForm();
